@@ -1,5 +1,5 @@
 pipeline {
-    agent { node { label 'any' } }
+    agent any 
     environment { 
       name = 'docker.myartifactory.com/artifactory/jenkins/slaves/ansible'
     }
