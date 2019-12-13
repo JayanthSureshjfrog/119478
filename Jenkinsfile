@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     environment { 
-      name = 'docker.myartifactory.com/artifactory/jenkins/slaves/ansible'
+      name = 'docker.myartifactory.com'
     }
     stages {
         stage ('Artifactory configuration') {
