@@ -9,7 +9,7 @@ pipeline {
                 rtServer (
                     id: "Arti1",
                     url: "http://myartifactory.com/artifactory",
-                    credentialsId: "dockerreg"
+                    credentialsId: "CREDENTIALS"
                 )
             }
         }
