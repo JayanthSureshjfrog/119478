@@ -20,7 +20,7 @@ pipeline {
                 """
             }
         }
-        stage('Pushing images to Jfrog'){
+        stage('Pushing and publishing into Jfrog'){
             steps
             {
                 script{
