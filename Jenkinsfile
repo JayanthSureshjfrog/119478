@@ -30,12 +30,12 @@ pipeline {
                 )
             }
         }
-        stage ('Publish build info') {
-          steps {
-            rtPublishBuildInfo (
-                serverId: "Arti1"
-            )
-          }
-        }
+     //   stage ('Publish build info') {
+      //    steps {
+       //     rtPublishBuildInfo (
+        //        serverId: "Arti1"
+         //   )
+         // }
+       // }
     }
 }
