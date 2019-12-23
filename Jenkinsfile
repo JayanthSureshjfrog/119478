@@ -23,14 +23,21 @@ pipeline {
         stage('Pushing and publishing into Jfrog'){
             steps
             {
+                /*
                 script{
                     def server = Artifactory.server "Arti1"
                 def rtDocker = Artifactory.docker server: server
                 def buildInfo =  rtDocker.push("${name}/ansible-2.8.5:latest", "docker-local")
 
-            }
+            } */
+           rtDockerPush(
+                  serverId: 'Arti1',
+                  image: '${name}/ansible-2.8.5:latest',
+                  targetRepo: 'docker-local'
+                     )      
         }
         }
+        /*
         stage ('Publish build info') {
          steps {
            rtDockerPush(
@@ -39,6 +46,6 @@ pipeline {
                   targetRepo: 'docker-local'
                      )
           }
-        }
+        } */
     }
 }
