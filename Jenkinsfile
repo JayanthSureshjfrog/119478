@@ -27,17 +27,18 @@ pipeline {
                     def server = Artifactory.server "Arti1"
                 def rtDocker = Artifactory.docker server: server
                 def buildInfo =  rtDocker.push("${name}/ansible-2.8.5:latest", "docker-local")
-                server.publishBuildInfo buildInfo
 
             }
         }
         }
-     //   stage ('Publish build info') {
-      //    steps {
+        stage ('Publish build info') {
+         steps {
+         server.publishBuildInfo buildInfo
+
        //     rtPublishBuildInfo (
         //        serverId: "Arti1"
          //   )
-         // }
-       // }
+          }
+        }
     }
 }
