@@ -33,13 +33,11 @@ pipeline {
         }
         stage ('Publish build info') {
          steps {
-             script{
-         server.publishBuildInfo buildInfo
-
-       //     rtPublishBuildInfo (
-        //        serverId: "Arti1"
-         //   )
-             }
+           rtDockerPush(
+                  serverId: 'Arti1',
+                  image: ${name}/ansible-2.8.5:latest,
+                  targetRepo: 'docker-local'
+                     )
           }
         }
     }
