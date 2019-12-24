@@ -1,7 +1,8 @@
 pipeline {
     agent any 
     environment { 
-      name = 'docker.myartifactory.com'
+      //name = 'docker.myartifactory.com'
+       name= 'mill.jfrog.info:12157'
     }
     stages {
         stage ('Artifactory configuration') {
