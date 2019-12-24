@@ -7,7 +7,7 @@ pipeline {
         stage ('Artifactory configuration') {
             steps {
                 rtServer (
-                    id: "Arti1",
+                    id: "mill-art",
                     url: "http://myartifactory.com/artifactory",
                     credentialsId: "CREDENTIALS"
                 )
@@ -24,7 +24,7 @@ pipeline {
             steps
             {
                 rtDockerPush(
-                  serverId: 'Arti1',
+                  serverId: 'mill-art',
                   image: "${name}/ansible-2.8.5:latest",
                   targetRepo: 'docker-local/')
                 
@@ -46,7 +46,7 @@ pipeline {
         stage ('Publish build info') {
          steps {
             rtPublishBuildInfo (
-                serverId: "Arti1"
+                serverId: "mill-art"
             )
           }
          }
