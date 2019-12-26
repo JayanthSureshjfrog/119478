@@ -20,7 +20,6 @@ pipeline {
                 docker build -t ${name}/nginx:latest --build-arg nginx=1.1 . --no-cache
                 """
              //docker build -t ${name}/ansible-2.8.5:latest --build-arg ansible=2.8.5 . --no-cache
-            sleep(120)
             }
         }
         stage('Pushing and publishing into Jfrog'){
@@ -43,7 +42,9 @@ pipeline {
                   image: '${name}/ansible-2.8.5:latest',
                   targetRepo: 'docker-local'
                      )       */
-        }
+            sleep(120)
+       
+            }
         }
         
         stage ('Publish build info') {
