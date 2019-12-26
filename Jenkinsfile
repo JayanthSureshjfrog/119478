@@ -1,14 +1,14 @@
 pipeline {
     agent any 
     environment { 
-      //name = 'docker.myartifactory.com'
-       name= 'mill.jfrog.info:12157'
+      name = 'docker.myartifactory.com'
+       //name= 'mill.jfrog.info:12157'
     }
     stages {
         stage ('Artifactory configuration') {
             steps {
                 rtServer (
-                    id: "mill-art",
+                    id: "Arti1",
                     url: "http://myartifactory.com/artifactory",
                     credentialsId: "CREDENTIALS"
                 )
@@ -25,7 +25,7 @@ pipeline {
             steps
             {
                 rtDockerPush(
-                  serverId: 'mill-art',
+                  serverId: 'Arti1',
                   image: "${name}/ansible-2.8.5:latest",
                   targetRepo: 'docker-local/')
                 
@@ -47,7 +47,7 @@ pipeline {
         stage ('Publish build info') {
          steps {
             rtPublishBuildInfo (
-                serverId: "mill-art"
+                serverId: "Arti1"
             )
           }
          }
