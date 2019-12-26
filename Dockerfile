@@ -1,1 +1,1 @@
-FROM docker.myartifactory.com/ansible
+FROM docker.myartifactory.com/nginx
