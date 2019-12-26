@@ -17,7 +17,8 @@ pipeline {
         stage('Building Images') {
             steps {
                 sh """
-                docker build -t ${name}/ansible-2.8.5:latest --build-arg ansible=2.8.5 . --no-cache
+                //docker build -t ${name}/ansible-2.8.5:latest --build-arg ansible=2.8.5 . --no-cache
+                docker build -t ${name}/nginx:latest --build-arg nginx=2.8.5 . --no-cache
                 """
             }
         }
@@ -26,7 +27,7 @@ pipeline {
             {
                 rtDockerPush(
                   serverId: 'Arti1',
-                  image: "${name}/ansible-2.8.5:latest",
+                  image: "${name}/nginx:latest",
                   targetRepo: 'docker-local/')
                 
                 /*
