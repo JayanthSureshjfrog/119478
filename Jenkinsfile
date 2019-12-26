@@ -17,9 +17,9 @@ pipeline {
         stage('Building Images') {
             steps {
                 sh """
-                //docker build -t ${name}/ansible-2.8.5:latest --build-arg ansible=2.8.5 . --no-cache
                 docker build -t ${name}/nginx:latest --build-arg nginx=1.1 . --no-cache
                 """
+             //docker build -t ${name}/ansible-2.8.5:latest --build-arg ansible=2.8.5 . --no-cache
             }
         }
         stage('Pushing and publishing into Jfrog'){
