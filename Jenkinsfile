@@ -29,7 +29,7 @@ pipeline {
                 rtDockerPush(
                   serverId: 'Arti1',
                   image: "${name}/ansible-2.8.5:latest",
-                  targetRepo: 'docker-local/')
+                  targetRepo: 'docker-local')
                 
                 /*
                 script{
